@@ -162,6 +162,10 @@ class ProcessBuilder {
                 const e = ProcessBuilder.isModEnabled(modCfg[mdl.getVersionlessID()], mdl.getRequired())
                 if(!o || (o && e)){
                     if(mdl.hasSubModules()){
+                        console.log(mdl.getVersionlessID());
+                        console.log(modCfg[mdl.getVersionlessID()]);
+                        console.log(modCfg);
+
                         const v = this.resolveModConfiguration(modCfg[mdl.getVersionlessID()].mods, mdl.getSubModules())
                         fMods = fMods.concat(v.fMods)
                         lMods = lMods.concat(v.lMods)
@@ -305,7 +309,7 @@ class ProcessBuilder {
 
         // Java Arguments
         if(process.platform === 'darwin'){
-            args.push('-Xdock:name=HeliosLauncher')
+            args.push('-Xdock:name=PokeStarsLauncher')
             args.push('-Xdock:icon=' + path.join(__dirname, '..', 'images', 'minecraft.icns'))
         }
         args.push('-Xmx' + ConfigManager.getMaxRAM())
@@ -343,7 +347,7 @@ class ProcessBuilder {
 
         // Java Arguments
         if(process.platform === 'darwin'){
-            args.push('-Xdock:name=HeliosLauncher')
+            args.push('-Xdock:name=PokeStarsLauncher')
             args.push('-Xdock:icon=' + path.join(__dirname, '..', 'images', 'minecraft.icns'))
         }
         args.push('-Xmx' + ConfigManager.getMaxRAM())
@@ -445,7 +449,7 @@ class ProcessBuilder {
                             val = args[i].replace(argDiscovery, tempNativePath)
                             break
                         case 'launcher_name':
-                            val = args[i].replace(argDiscovery, 'Helios-Launcher')
+                            val = args[i].replace(argDiscovery, 'PokeStars-Launcher')
                             break
                         case 'launcher_version':
                             val = args[i].replace(argDiscovery, this.launcherVersion)
